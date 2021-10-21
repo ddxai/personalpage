@@ -6,7 +6,7 @@ class Category(models.Model):
     folder_path = models.CharField(max_length=200)
 
     def __str__(self):
-        return '{} {}'.format(self.name, self.folder_path)
+        return self.name
 
 
 class Picture(models.Model):
@@ -16,4 +16,4 @@ class Picture(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {} {}'.format(self.title, self.description, self.file_path)
+        return self.title
