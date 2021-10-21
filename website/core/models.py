@@ -5,9 +5,15 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     folder_path = models.CharField(max_length=200)
 
+    def __str__(self):
+        return '{} {}'.format(self.name, self.folder_path)
+
 
 class Picture(models.Model):
     title = models.CharField(max_length=70)
     description = models.CharField(max_length=200, default=None, blank=True, null=True)
     file_path = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{} {} {}'.format(self.title, self.description, self.file_path)
