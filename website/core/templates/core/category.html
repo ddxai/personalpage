@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{category.name}}</title>
-</head>
-<body>
-<p>{{category.name}}</p>
+{% extends 'core/layout.html' %}
+
+{% block title %}{{category.name}}{% endblock %}
+
+{% block category_menu %}
+{% include 'core/menu_generator.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
 {% if picture_list %}
-    <ul>
+<ul>
     {% for picture in picture_list %}
-        <li>{{ picture.title }}</li>
+    <li>{{ picture.title }}</li>
     {% endfor %}
-    </ul>
+</ul>
 {% else %}
-    <p>No pictures are presented.</p>
+<p>No pictures are presented.</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}
