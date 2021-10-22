@@ -11,15 +11,20 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse('About')
+    category_list = Category.objects.order_by('id')
+    context = {'category_list': category_list}
+    return render(request, 'core/about.html', context)
 
 
 def contacts(request):
-    return HttpResponse('Contacts')
+    category_list = Category.objects.order_by('id')
+    context = {'category_list': category_list}
+    return render(request, 'core/contacts.html', context)
 
 
 def category(request, category_name):
     category = get_object_or_404(Category, name=category_name)
     picture_list = category.picture_set.order_by('-id')
-    context = {'category': category, 'picture_list': picture_list}
+    category_list = Category.objects.order_by('id')
+    context = {'category': category, 'picture_list': picture_list, 'category_list': category_list}
     return render(request, 'core/category.html', context)
