@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{category.name}}</title>
+</head>
+<body>
+<p>{{category.name}}</p>
+{% if picture_list %}
+    <ul>
+    {% for picture in picture_list %}
+        <li>{{ picture.title }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No pictures are presented.</p>
+{% endif %}
+</body>
+</html>
