@@ -130,3 +130,7 @@ dmypy.json
 
 # Pycharm
 .idea
+
+# Image folder
+/website/core/media/image/*
+!/website/core/media/image/.gitkeep
