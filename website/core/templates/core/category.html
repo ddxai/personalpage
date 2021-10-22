@@ -7,11 +7,10 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ category.name }}</h1>
 {% if picture_list %}
 {% for picture in picture_list %}
-<h2>{{ picture.title }}</h2>
-<img src="{{ picture.image.url }}" alt="{{ picture.title }}">
+<img src="{{ picture.image.url }}" class="mx-auto d-block" alt="{{ picture.title }}">
+<p class="text-center lead">{{ picture.title }}</p>
 {% endfor %}
 {% else %}
 <p>No pictures are presented.</p>
