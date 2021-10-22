@@ -1,4 +1,3 @@
-from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 
 from .models import Category
@@ -28,3 +27,6 @@ def category(request, category_name):
     category_list = Category.objects.order_by('id')
     context = {'category': category, 'picture_list': picture_list, 'category_list': category_list}
     return render(request, 'core/category.html', context)
+
+
+

@@ -1,7 +1,11 @@
 {% if category_list %}
-{% for category in category_list %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'core:category' category.name %}">{{ category.name }}</a>
-    </li>
+{% for category_i in category_list %}
+{% if category and category.name == category_i.name %}
+<li class="nav-item active">
+    {% else %}
+<li class="nav-item">
+    {% endif %}
+    <a class="nav-link" href="{% url 'core:category' category_i.name %}">{{ category_i.name }}</a>
+</li>
 {% endfor %}
 {% endif %}

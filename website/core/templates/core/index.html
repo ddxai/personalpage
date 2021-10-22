@@ -1,9 +1,15 @@
 {% extends 'core/layout.html' %}
 
 {% block title %}Homepage{% endblock %}
+
 {% block category_menu %}
 {% include 'core/menu_generator.html' %}
 {% endblock %}
+
+{% block nav_home %}
+<li class="nav-item active">
+{% endblock %}
+
 {% block content %}
 <h1>content</h1>
 {% endblock %}
