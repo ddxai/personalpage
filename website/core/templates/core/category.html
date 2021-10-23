@@ -9,7 +9,7 @@
 {% block content %}
 {% if picture_list %}
 {% for picture in picture_list %}
-<img src="{{ picture.image.url }}" class="mx-auto d-block" alt="{{ picture.title }}">
+<img src="{{ picture.image.url }}" class="img-fluid mx-auto d-block" style="width: auto; max-height: 800px;" alt="{{ picture.title }}">
 <p class="lead">{{ picture.title }}</p>
 {% endfor %}
 {% else %}
