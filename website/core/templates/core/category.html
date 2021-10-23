@@ -10,7 +10,7 @@
 {% if picture_list %}
 {% for picture in picture_list %}
 <img src="{{ picture.image.url }}" class="mx-auto d-block" alt="{{ picture.title }}">
-<p class="text-center lead">{{ picture.title }}</p>
+<p class="lead">{{ picture.title }}</p>
 {% endfor %}
 {% else %}
 <p>No pictures are presented.</p>

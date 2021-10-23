@@ -7,6 +7,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -26,33 +27,43 @@
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+<div class="col-sm-0 col-md-2"></div>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             {% block nav_home %}
             <li class="nav-item">
-            {% endblock %}
-                <a class="nav-link" href="{% url 'core:index' %}">Home <span class="sr-only">(current)</span></a>
+                {% endblock %}
+                <a class="nav-link" href="{% url 'core:index' %}"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
             </li>
             {% block category_menu %}
             {% endblock %}
             {% block nav_about %}
             <li class="nav-item">
-            {% endblock %}
+                {% endblock %}
                 <a class="nav-link" href="{% url 'core:about' %}">About</a>
             </li>
             {% block nav_contacts %}
             <li class="nav-item">
-            {% endblock %}
+                {% endblock %}
                 <a class="nav-link" href="{% url 'core:contacts' %}">Contacts</a>
             </li>
         </ul>
     </div>
+<div class="col-sm-0 col-md-2"></div>
 </nav>
-<div class="container">
-    {% block content %}
-    {% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-sm-0 col-md-2">
+        </div>
+        <div class=" col-sm-12 col-md-8">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class=" col-sm-0 col-md-2">
+        </div>
+    </div>
 </div>
+
 </body>
 
 </html>
