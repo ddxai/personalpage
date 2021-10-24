@@ -13,10 +13,13 @@ def about(request):
     category_list = Category.objects.order_by('id')
     social_list = Social.objects.order_by('id')
     try:
-        text_about = About.objects.order_by('id')[0].text
+        about_obj = About.objects.order_by('id')[0]
+        text_about = about_obj.text
+        photo = about_obj.photo
     except About.DoesNotExist:
         text_about = ' '
-    context = {'category_list': category_list, 'social_list': social_list, 'text_about': text_about}
+        photo = None
+    context = {'category_list': category_list, 'social_list': social_list, 'text_about': text_about, 'photo': photo}
     return render(request, 'core/about.html', context)
 
 

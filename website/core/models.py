@@ -28,6 +28,7 @@ class Social(models.Model):
 
 class About(models.Model):
     text = RichTextField(blank=True, null=True)
+    photo = models.ImageField(upload_to='images/about/', blank=True, null=True)
 
     def __str__(self):
         return self.text

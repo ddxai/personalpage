@@ -8,7 +8,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
 
     <!-- JS, Popper.js, and jQuery -->
@@ -37,7 +37,7 @@
             {% block nav_home %}
             <li class="nav-item">
                 {% endblock %}
-                <a class="nav-link" href="{% url 'core:index' %}"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'core:index' %}"><i class="ri-home-7-fill ri-lg"></i> <span class="sr-only">(current)</span></a>
             </li>
             {% block category_menu %}
             {% endblock %}
