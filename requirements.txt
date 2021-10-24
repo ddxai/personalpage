@@ -5,3 +5,5 @@ Django~=3.2.8
 sqlparse~=0.4.2
 asgiref~=3.4.1
 pillow~=8.4.0
+wheel~=0.36.2
+django-ckeditor~=6.1.0
