@@ -11,5 +11,26 @@
 {% endblock %}
 
 {% block content %}
-<h1>content</h1>
+<div class="row">
+    <div class="col">
+    {% for pic in pic_list_col1 %}
+        <a href="{% url 'core:category' pic.category.name %}">
+            <div>
+                <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
+                <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+    <div class="col">
+    {% for pic in pic_list_col2 %}
+     <a href="{% url 'core:category' pic.category.name %}">
+            <div>
+                <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
+                <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+</div>
 {% endblock %}
