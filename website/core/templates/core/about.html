@@ -7,15 +7,16 @@
 {% endblock %}
 
 {% block nav_about %}
-<li class="nav-item active">
+    <li class="nav-item active">
 {% endblock %}
 
 {% block content %}
     <div class="row">
-    <div class="col-4"><img src="{{ photo.url }}" class="img-fluid"></div>
-   <div class="col-8">{{text_about|safe}}
-    {% for social in social_list %}
-    <a href="{{social.link}}"><i class="ri-{{social.name}}-line ri-2x" style="color: grey;"></i></a>
-    {% endfor %}</div>
+        <div class="col-4"><img src="{{ photo.url }}" class="img-fluid"></div>
+        <div class="col-8">{{text_about|safe}}
+            {% for social in social_list %}
+                <a href="{{social.link}}"><i class="ri-{{social.name}}-line ri-2x" style="color: grey;"></i></a>
+            {% endfor %}
         </div>
+    </div>
 {% endblock %}
