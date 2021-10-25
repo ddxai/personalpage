@@ -13,6 +13,7 @@
 {% block content %}
 <div class="row">
     <div class="col">
+        {% if pic_list_col1 %}
     {% for pic in pic_list_col1 %}
         <a href="{% url 'core:category' pic.category.name %}">
             <div>
@@ -21,8 +22,11 @@
             </div>
         </a>
     {% endfor %}
+        {% endif %}
+
     </div>
     <div class="col">
+        {% if pic_list_col2 %}
     {% for pic in pic_list_col2 %}
      <a href="{% url 'core:category' pic.category.name %}">
             <div>
@@ -31,6 +35,7 @@
             </div>
         </a>
     {% endfor %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}

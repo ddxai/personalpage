@@ -5,22 +5,28 @@ from .models import Category, Social, About
 
 def index(request):
     category_list = Category.objects.order_by('id')
+    pic_list = []
+    for cat in category_list:
+        pic_queryset = cat.picture_set.order_by('-id')
+        if pic_queryset.exists():
+            pic_list.append(pic_queryset[0])
+    if pic_list:
+        pic_list = sorted(pic_list, key=lambda p: p.image.height)
+        height_sum = 0
+        for pic in pic_list:
+            height_sum += pic.image.height
 
-    pic_list = sorted(map(lambda cat: cat.picture_set.order_by('-id')[0], category_list), key=lambda p: p.image.height)
-    height_sum = 0
-    for pic in pic_list:
-        height_sum += pic.image.height
-
-    sum_col1 = sum_col2 = height_sum / 2
-    pic_list_col1, pic_list_col2 = [], []
-    for pic in pic_list:
-        if sum_col1 >= sum_col2:
-            pic_list_col1.append(pic)
-            sum_col1 -= pic.image.height
-        else:
-            pic_list_col2.append(pic)
-            sum_col2 -= pic.image.height
-
+        sum_col1 = sum_col2 = height_sum / 2
+        pic_list_col1, pic_list_col2 = [], []
+        for pic in pic_list:
+            if sum_col1 >= sum_col2:
+                pic_list_col1.append(pic)
+                sum_col1 -= pic.image.height
+            else:
+                pic_list_col2.append(pic)
+                sum_col2 -= pic.image.height
+    else:
+        pic_list_col1 = pic_list_col2 = None
     context = {'category_list': category_list, 'pic_list_col1': pic_list_col1, 'pic_list_col2': pic_list_col2}
     return render(request, 'core/index.html', context)
 
