@@ -17,40 +17,41 @@
 {% block content %}
 {% if picture_list %}
 <div id="myModal" class="modal fade" role="dialog" data-backdrop="static">
-  <div class="modal-dialog">
-    <div class="modal-content slider-full-screen">
-        <!-- Button to close the modal -->
-        <div><button type="button" class="close" data-dismiss="modal">&times;</button></div>
-<!--<div class="slider-full-screen">-->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-            {% for pic in picture_list %}
-            <div id="carousel-item-{{ forloop.counter0 }}" class="carousel-item">
-                <div class="d-flex align-items-center justify-content-center min-vh-100">
-                    <img src="{{ pic.image.url }}" class="mx-auto d-block screen-fitted">
-                </div>
+    <div class="modal-dialog">
+        <div class="modal-content slider-full-screen">
+            <!-- Button to close the modal -->
+            <div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            {% endfor %}
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-<!--</div>-->
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    {% for pic in picture_list %}
+                    <div id="carousel-item-{{ forloop.counter0 }}" class="carousel-item">
+                        <div class="d-flex align-items-center justify-content-center min-vh-100">
+                            <img src="{{ pic.image.url }}" class="mx-auto d-block screen-fitted">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div><!-- Modal content -->
-      </div><!-- Modal dialog close -->
-    </div><!-- My modal close -->
+    </div><!-- Modal dialog close -->
+</div><!-- My modal close -->
 {% endif %}
 
 
 {% if picture_list %}
 {% for picture in picture_list %}
-<img src="{{ picture.image.url }}" id="picture-number-{{ forloop.counter0 }}" class="img-fluid mx-auto d-block size-category" alt="{{ picture.title }}">
+<img src="{{ picture.image.url }}" id="picture-number-{{ forloop.counter0 }}"
+     class="img-fluid mx-auto d-block size-category" alt="{{ picture.title }}">
 <p class="lead">{{ picture.title }}</p>
 {% endfor %}
 {% else %}

@@ -31,13 +31,15 @@
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-<div class="col-sm-0 col-md-2"></div>
+    <div class="col-sm-0 col-md-2"></div>
+    <a class="navbar-brand" href="{% url 'core:index' %}"><img src="{% static 'core/img/logo_navbar.png' %}"
+                                                               height="32px" width="auto"></a>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             {% block nav_home %}
             <li class="nav-item">
                 {% endblock %}
-                <a class="nav-link" href="{% url 'core:index' %}"><i class="ri-home-7-fill ri-lg"></i> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'core:index' %}">Home</a>
             </li>
             {% block category_menu %}
             {% endblock %}
@@ -48,13 +50,13 @@
             </li>
         </ul>
     </div>
-<div class="col-sm-0 col-md-2"></div>
+    <div class="col-sm-0 col-md-2"></div>
 </nav>
 <div class="container-fluid">
     <div class="row">
         <div class=" col-sm-0 col-md-2">
         </div>
-        <div class=" col-sm-12 col-md-8">
+        <div class=" col-sm-12 col-md-8 px-0">
             {% block content %}
             {% endblock %}
         </div>

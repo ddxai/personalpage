@@ -1,5 +1,8 @@
+from PIL import Image
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Category(models.Model):
@@ -16,6 +19,14 @@ class Picture(models.Model):
 
     def __str__(self):
         return self.title
+
+
+@receiver(post_save, sender=Picture)
+def create_slug(sender, instance, *args, **kwargs):
+    max_size = (1920, 1920)
+    img = Image.open(instance.image)
+    img.thumbnail(max_size, Image.LANCZOS)
+    img.save(instance.image.path)
 
 
 class Social(models.Model):

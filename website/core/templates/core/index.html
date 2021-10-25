@@ -8,29 +8,34 @@
 
 {% block nav_home %}
 <li class="nav-item active">
-{% endblock %}
+    {% endblock %}
 
-{% block content %}
-<div class="row">
-    <div class="col">
-    {% for pic in pic_list_col1 %}
-        <a href="{% url 'core:category' pic.category.name %}">
-            <div>
-                <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
-                <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
-            </div>
-        </a>
-    {% endfor %}
+    {% block content %}
+    <div class="row">
+        <div class="col">
+            {% if pic_list_col1 %}
+            {% for pic in pic_list_col1 %}
+            <a href="{% url 'core:category' pic.category.name %}">
+                <div>
+                    <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
+                    <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+        <div class="col">
+            {% if pic_list_col2 %}
+            {% for pic in pic_list_col2 %}
+            <a href="{% url 'core:category' pic.category.name %}">
+                <div>
+                    <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
+                    <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
     </div>
-    <div class="col">
-    {% for pic in pic_list_col2 %}
-     <a href="{% url 'core:category' pic.category.name %}">
-            <div>
-                <img src="{{ pic.image.url }}" class="mx-auto d-block img-fluid">
-                <p class="lead text-center" style="font-size:1.2em;">{{ pic.title }}</p>
-            </div>
-        </a>
-    {% endfor %}
-    </div>
-</div>
-{% endblock %}
+    {% endblock %}
